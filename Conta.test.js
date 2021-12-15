@@ -59,3 +59,26 @@ test('teste deposito valor negativo', () => {
     expect(contaDoCliente01.saldo).toBe(0);
 });
 
+test('teste transferencia de valor', () => {
+    var cliente03 = new Cliente();
+    cliente03.nome = 'Kawe da Silva';
+    cliente03.cpf = '11133399954';
+    var contaA = new Conta();
+    contaA.agencia = 204;
+    contaA.numero = 25;
+    contaA.cliente = cliente03;
+    
+    contaA.depositar(100.0)
+    contaA.transferir(100.0, contaB)
+
+    var cliente04 = new Cliente();
+    cliente03.nome = 'Kassio da Silva';
+    cliente03.cpf = '22244499954';
+    var contaB = new Conta();
+    contaA.agencia = 205;
+    contaA.numero = 255;
+    contaA.cliente = cliente04;
+    contaB.depositar(50.0)
+
+    expect(contaB.saldo).toBe(0);
+});
