@@ -13,7 +13,7 @@ test('teste saque valor igual ao saldo', () => {
     contaDoCliente01.depositar(100.0);
     contaDoCliente01.sacar(100.0);
 
-    expect(contaDoCliente01.saldo).toBe(0.0);
+    expect(contaDoCliente01._saldo).toBe(0.0);
 });
 
 test('teste saque valor maior que o saldo', () => {
@@ -28,7 +28,7 @@ test('teste saque valor maior que o saldo', () => {
     contaDoCliente01.depositar(100.0);
     contaDoCliente01.sacar(200.0);
 
-    expect(contaDoCliente01.saldo).toBe(100.0);
+    expect(contaDoCliente01._saldo).toBe(100.0);
 });
 
 test('teste deposito valor maior que o saldo', () => {
@@ -42,7 +42,7 @@ test('teste deposito valor maior que o saldo', () => {
 
     contaDoCliente01.depositar(200.0);
 
-    expect(contaDoCliente01.saldo).toBe(200.0);
+    expect(contaDoCliente01._saldo).toBe(200.0);
 });
 
 test('teste deposito valor negativo', () => {
@@ -56,7 +56,7 @@ test('teste deposito valor negativo', () => {
 
     contaDoCliente01.depositar(-200.0);
 
-    expect(contaDoCliente01.saldo).toBe(0);
+    expect(contaDoCliente01._saldo).toBe(0);
 });
 
 test('teste transferencia de valor', () => {
@@ -69,16 +69,17 @@ test('teste transferencia de valor', () => {
     contaA.cliente = cliente03;
     
     contaA.depositar(100.0)
-    contaA.transferir(100.0, contaB)
+    
 
     var cliente04 = new Cliente();
-    cliente03.nome = 'Kassio da Silva';
-    cliente03.cpf = '22244499954';
+    cliente04.nome = 'Kassio da Silva';
+    cliente04.cpf = '22244499954';
     var contaB = new Conta();
-    contaA.agencia = 205;
-    contaA.numero = 255;
-    contaA.cliente = cliente04;
-    contaB.depositar(50.0)
-
-    expect(contaB.saldo).toBe(0);
+    contaB.agencia = 205;
+    contaB.numero = 255;
+    contaB.cliente = cliente04;
+    contaB.depositar(50);
+    
+    contaA.transferir(100, contaB)
+    expect(contaB._saldo).toBe(150.0);
 });
