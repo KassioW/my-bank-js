@@ -28,7 +28,6 @@ class Conta{
             console.log("Você não tem saldo suficiente para essa transferência");  
             return;
         }
-      
         else if (valor > 0) {
             const valorSacado = this.sacar(valor);
             contaDestino.depositar(valorSacado);  
