@@ -82,4 +82,5 @@ test('teste transferencia de valor', () => {
     
     contaA.transferir(100, contaB)
     expect(contaB._saldo).toBe(150.0);
+    expect(contaA._saldo).toBe(0.0)
 });

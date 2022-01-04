@@ -32,6 +32,14 @@ class Conta{
             const valorSacado = this.sacar(valor);
             contaDestino.depositar(valorSacado);  
         }   
-    }
-}
+        obterSaldo(){}
+
+        criar(){}
+    
+        fechar(){}
+    
+        obterExtrato(){}
+    } 
+  }
+
 module.exports = Conta;
